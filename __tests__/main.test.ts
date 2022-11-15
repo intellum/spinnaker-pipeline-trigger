@@ -77,7 +77,8 @@ describe('Publish', () => {
     // Arrange
     const region = 'us-west-2'
     process.env.INPUT_PARAMETERS = 'parameter1: value1\nparameter2: value2'
-    process.env.INPUT_MESSAGE_ATTRIBUTES = 'attribute1: value1\nattribute2: value2'
+    process.env.INPUT_MESSAGE_ATTRIBUTES =
+      'attribute1: value1\nattribute2: value2'
 
     const input = {
       Message:

@@ -82,17 +82,14 @@ function constructMessage() {
     const githubEventName = process.env.GITHUB_EVENT_NAME || '';
     const githubActor = process.env.GITHUB_ACTOR || '';
     const parameters = yaml.load(core.getInput('parameters')) || {};
-    const messageAttributes = core.getInput('message_attributes') || '';
-    return {
-        repository,
+    const messageAttributes = yaml.load(core.getInput('message_attributes')) || {};
+    return Object.assign({ repository,
         commit,
         ref,
         githubEventName,
         githubActor,
         githubAction,
-        parameters,
-        messageAttributes
-    };
+        parameters }, messageAttributes);
 }
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
